@@ -87,9 +87,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `token`, `showemail`, `avatar`, `chatId`, `active`, `friends`) VALUES
-(1, 'ilya_ru_94@mail.ru', '$2y$10$HlMyIxIUllVasYxrfXI71.gBKCMBXbqp7nXGisaqvb4tnpzd0VnGu', 'Илья', '6d9b73219c0058e023b823c4aad4d97b570b5ce3ab9fbb37b54cb7a65d1c9834', 1, './uploads/1690907345.jpg', 'Resource id #26', 1, '3,ch1,2'),
-(2, 'ilya-mlt@yandex.ru', '$2y$10$MBDfxfi.BonvQmBkJPfGH.1aTQCe94i2taIs0Qn2EN70vBI0fEScC', 'Работа', '64af44fce73761410be719b065bf982dd4874f8b122d824e09a7d0a0b70cf0b0', 0, './uploads/1691105763.jpg', 'Resource id #25', 1, 'ch1,1'),
-(3, 'admin@mlt33.ru', '$2y$10$rjrc.iCQyPA3n2xcfqBK6.uHMcTSURFryxJLB0TXJfvXCq.a2qYRy', 'admin', '0c5a59eb8f672ea80d4ff2bd1f0a37b8846fd894b54a64b2db8abb73c1be33c3', 0, './uploads/1691031476.jpg', 'Resource id #27', 1, '1,ch1');
+(1, '1@chat.local', '$2y$10$HlMyIxIUllVasYxrfXI71.gBKCMBXbqp7nXGisaqvb4tnpzd0VnGu', 'Илья', '6d9b73219c0058e023b823c4aad4d97b570b5ce3ab9fbb37b54cb7a65d1c9834', 1, './uploads/1690907345.jpg', 'Resource id #26', 1, '3,ch1,2'),
+(2, '2@ychat.local', '$2y$10$MBDfxfi.BonvQmBkJPfGH.1aTQCe94i2taIs0Qn2EN70vBI0fEScC', 'Работа', '64af44fce73761410be719b065bf982dd4874f8b122d824e09a7d0a0b70cf0b0', 0, './uploads/1691105763.jpg', 'Resource id #25', 1, 'ch1,1'),
+(3, '3@chat.local', '$2y$10$rjrc.iCQyPA3n2xcfqBK6.uHMcTSURFryxJLB0TXJfvXCq.a2qYRy', 'admin', '0c5a59eb8f672ea80d4ff2bd1f0a37b8846fd894b54a64b2db8abb73c1be33c3', 0, './uploads/1691031476.jpg', 'Resource id #27', 1, '1,ch1');
 
 --
 -- Индексы сохранённых таблиц
