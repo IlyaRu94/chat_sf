@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  php:
+    build: ./php
+    container_name: chat-php
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_DATABASE=chat
+      - MYSQL_USER=user1
+      - MYSQL_PASSWORD=s123
+      - MYSQL_PORT=3306
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./src:/var/www
+    depends_on:
+      - mysql  
+    networks:
+      - chat-network
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: chat-nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./src:/var/www
+      - ./nginx:/etc/nginx/conf.d 
+    depends_on:
+      - php 
+    networks:
+      - chat-network  
+
+  mysql:
+    image: mysql:8.0.29
+    container_name: chat-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: s123123
+      MYSQL_DATABASE: chat
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: s123
+      MYSQL_ROOT_HOST: "%"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    ports:
+      - 33060:3306
+    networks:
+      - chat-network
+
+  phpmyadmin:
+    image: phpmyadmin:latest 
+    container_name: chat-phpmyadmin
+    restart: unless-stopped
+    environment:
+      - PMA_ARBITRARY=1
+      - UPLOAD_LIMIT=1024M
+      - MEMORY_LIMIT=1024M
+      - MAX_EXECUTION_TIME=300  
+    ports:
+      - 8000:80
+    depends_on:
+      - mysql 
+    networks:
+      - chat-network        
+
+  phpchat:
+    build: ./src/public/
+    container_name: chat-php2
+    env_file: ./src/public/.env
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./src:/var/www
+    depends_on:
+      - mysql
+    links:
+      - mysql:db
+    ports:
+      - 9005:9000
+    networks:
+      - chat-network
+
+volumes:
+  mysql_data:
+
+networks:
+  chat-network:
+    driver: bridge
+    attachable: true
+    internal: false

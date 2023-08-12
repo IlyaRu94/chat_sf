@@ -1,0 +1,428 @@
+html, body{
+    height: 100%;
+    overflow: hidden;
+}
+body{
+    background: #c4c4c4;
+    color: #000;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.displaynone{
+    display: none;
+}
+
+.main{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.sidebar{
+    width:20%;
+    padding: 20px;
+}
+.nav{
+    width:10%;
+    padding: 20px;
+}
+.content {
+    width: 70%;
+    border-right: black solid 1px;
+    border-left: black solid 1px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y:scroll;
+}
+.container__header {
+    position: sticky;
+    top: -20px;
+    display: flex;
+    width: 100%;
+    background: #c4c4c4;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.container__main{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.sendToUser, .sendUser{
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+}
+.sendUser{
+    align-self: flex-end;
+}
+input, textarea, button {
+    border: none;
+    padding: 10px 10px;
+    width: 100%;
+    resize: none;
+    font-size: 18px;
+    margin: 5px;
+    box-sizing: border-box;
+}
+.form__send{
+    background: url('image/send.png');
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    margin:10px;
+}
+.form {
+    background-color: white;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container__form{
+    width: 100%;
+    height: 100%;
+}
+.container__content {
+    border: solid black 2px;
+    padding: 50px;
+}
+.container__login{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list{
+    display: flex;
+    height: 90%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.users{
+    height: 50%;
+    overflow-y: auto;
+}
+.users__list__item, .search__result__item, .users__list__group__item, .users__list__resend__item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:5px;
+    font-size:18px;
+    cursor:pointer;
+}
+#myfriendstogroup{
+    overflow-y: auto;
+    height: 250px;
+}
+.users__list__group__item{
+    justify-content: flex-start;
+}
+.users__list__item__span, .users__list__group__item__span, .users__list__resend__item__span{
+width:85%;
+white-space: nowrap;
+overflow: hidden;
+padding: 5px;
+animation: opa 1s forwards;
+}
+.users__list__group__item__span{
+    padding-left: 10px;
+}
+.search__result{
+    display:none;
+    width:100%;
+    background: white;
+    animation: ani 2s forwards;
+    margin: 5px;
+    overflow-y: auto;
+}
+.errmsg{
+    display: block;
+    background: rgb(245, 179, 179);
+    padding:20px;
+    animation: opa 1s forwards;
+}
+.container__myProfile, .container__group, .container__setting {
+    /*display: flex;*/
+    display: none;
+    justify-content: center;
+    background: white;
+    position: absolute;
+    padding:20px;
+    top: 10px;
+    right: 10px;
+    animation: opa 1s forwards;
+}
+.container__myProfile__sidebar, .container__group__sidebar, .container__setting__sidebar{
+    padding: 10px;
+    width: 400px;
+}
+.container__resend{
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    z-index: 100;
+    margin: auto;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    top: 0;
+    left: 0;
+    background: white;
+    padding: 20px;
+    box-shadow: 10px 10px 20px 10px #e1e1e1;
+    display:none;
+}
+#showemail{
+    width: 20px;
+    height: 20px;
+}
+.nav__item, #history{
+    cursor:pointer;
+    padding:10px;
+}
+#history{
+    background: #d8d8d8;
+    width: 160px;
+}
+.close_profile, #editName, #showemail, #Photoedit, button, .close_group, .close_setting{
+    cursor: pointer;
+}
+.nav__item:hover,.search__result__item:hover,.users__list__item:hover,.users__list__resend__item:hover, #history:hover{
+    background: #e1e1e1;
+    transition: 0.5s;
+}
+.add{
+    background: #e1e1e1;
+    transition: 0.5s;
+}
+.container__myProfile__sidebar__photo, .container__myProfile__sidebar__form .displaynone{
+    transition: 1s;
+}
+#newName, #nameGroup{
+    border: 1px solid black;
+}
+.user_message, .user_name{
+    padding: 0;
+    margin: 0;
+}
+.mute > img, .container__setting__item > img{
+    width: 20px;
+    height: 20px;
+    animation: opaslow 1s forwards;
+    margin-left:10px;
+}
+.container__setting__item{
+    padding: 10px;
+}
+#title-chat{
+    font-size: 20px;
+    animation: opaslow 2s forwards;
+}
+.user_message_span, i{
+color: #666;
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+/*  .i:before{
+    content:"✔";
+    width:30px;
+height: 30px;
+}  */
+.v{
+    display:none;
+}
+.users__list__item:hover > .v, .search__result__item:hover > .v{
+    display:block;
+    animation: opa 1s forwards;
+}
+.v:hover + .i{
+    transform: scale(20);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    bottom: 0;
+    z-index: 10;
+    animation: opa 1s forwards;
+    box-shadow: 1px 1px 2px 1px #e1e1e1;
+   }
+
+@keyframes ani {
+    0% {height: 0; opacity: 0;}
+    30%{opacity: 0;}
+    100% {height: 250px;opacity: 1;}
+    }
+@keyframes opa {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+    }
+@keyframes opaslow {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+#ctxMenu{
+    display:none;
+    z-index:100;
+    border:none;
+    text-align: center;
+}
+.rmenu {
+    border:1px solid;
+    background-color:white;
+    font-weight:normal;
+    white-space:nowrap;
+}
+menu {
+    position:absolute;
+    display:block;
+    left:0px;
+    top:0px;
+    height:22px;
+    width:20px;
+    padding:5px;
+    margin:0; 
+}
+.rmenu:hover{
+    background-color:#eef;
+    font-weight:bold;
+}
+.rmenu{
+    display:block;
+}
+menu > menu{
+    display:none;
+    position:relative;
+    top: 0px;
+    left:100%;
+    width: 100px;
+}
+menu[title]:before{
+    content:attr(title);
+}
+/* menu:not([title]):before{
+    content:"✔";
+} */
+
+#exit{
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.mobileMenu {
+    display: none;
+}
+
+/* W3C standard
+   сейчас только для Firefox */
+   * {
+    scrollbar-width: thin;
+    scrollbar-color: #000 #C4C4C4;
+  }
+  
+  /* для Chrome/Edge/Safari */
+  *::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+  }
+  *::-webkit-scrollbar-track {
+    background: #c4c4c4;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: #000;
+    border-radius: 5px;
+    border: 3px solid #c4c4c4;
+  }
+
+
+  @media (max-width: 850px) {
+    body{
+        height: 100%;
+        overflow-y: auto;
+    }
+    .main {
+        display: block;
+        width: 100%;
+        
+    }
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        display:none;
+        height: 60%;
+    }
+    .content {
+        width: 100%;
+        border: black solid 1px;
+        box-sizing: border-box;
+        height: 90%;
+        overflow-y: auto;
+    }
+    .nav {
+        position: absolute;
+        top: 54px;
+        right: 10px;
+        text-align: right;
+        background: white;
+        width: 160px;
+        display: none;
+    }
+    
+.container__myProfile {
+    width: 100%;
+    box-sizing: border-box;
+}
+.container__myProfile__sidebar, .container__group__sidebar {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.container__myProfile__sidebar:first-child, .container__group__sidebar:first-child {
+    display:none;
+  }
+.container__myProfile__sidebar__photo, .container__group__sidebar__photo{
+    width: 100%!important;
+}
+.container__setting__sidebar {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.v:hover + .i {
+    transform: scale(10);
+}
+
+
+.mobileMenu {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+    }
+
+
+
+.displayblock{
+    display: block;
+    animation: opa 1s forwards;
+}
